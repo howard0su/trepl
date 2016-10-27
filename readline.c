@@ -260,12 +260,16 @@ static int f_setup(lua_State *L)
   /* Break words at every non-identifier character except '.' and ':'. */
   rl_completer_word_break_characters =
     "\t\r\n !\"#$%&'()*+,-/;<=>?@[\\]^`{|}~";
+#ifndef EDITLINE
   rl_completer_quote_characters = "\"'";
+#endif
 /* #if RL_READLINE_VERSION < 0x0600 */
   rl_completion_append_character = '\0';
 /* #endif */
   rl_attempted_completion_function = lua_rl_complete;
+#ifndef EDITLINE
   rl_initialize();
+#endif
 
   return 0;
 }

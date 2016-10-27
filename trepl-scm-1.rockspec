@@ -39,11 +39,10 @@ build = {
 	     modules = {
 		    ['readline'] = {
                sources = {'readline.c'},
-               libraries = {'readline'},
-			   defines = {"USE_READLINE_STATIC"},
-               incdirs = {"windows"},
-               libdirs = {"windows"},
-               libraries = {'readline-win'}
+			   defines = {"EDITLINE"},
+               incdirs = {"../../install/include"},
+               libdirs = {"../../install/lib"},
+               libraries = {'libedit_static', 'User32'}
 			}
 		 }
 	  }
